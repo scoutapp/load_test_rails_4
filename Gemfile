@@ -29,3 +29,5 @@ group :development do
   gem 'spring'
   gem 'pry'
 end
+
+gem 'scout_apm', git: 'https://github.com/scoutapp/scout_apm_ruby.git', branch: 'summary_metrics_for_middleware'

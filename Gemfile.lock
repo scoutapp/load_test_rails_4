@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/scoutapp/scout_apm_ruby.git
+  revision: 4ab41520433b6bf944d0f79ee6e790797efe9af5
+  branch: summary_metrics_for_middleware
+  specs:
+    scout_apm (1.2.11)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -152,6 +159,7 @@ DEPENDENCIES
   puma
   rails (~> 4.2, >= 4.2.5)
   sass-rails (~> 4.0.3)
+  scout_apm!
   spring
   stackprof
   turbolinks
