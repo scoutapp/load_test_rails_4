@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def ip
-    render text: request.remote_ip
+    render text: local_ip
   end
 
   def hey
@@ -20,6 +20,17 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def local_ip
+    orig, Socket.do_not_reverse_lookup = Socket.do_not_reverse_lookup, true  # turn off reverse DNS resolution temporarily
+
+    UDPSocket.open do |s|
+      s.connect '64.233.187.99', 1
+      s.addr.last
+    end
+  ensure
+    Socket.do_not_reverse_lookup = orig
+  end
 
   def do_stuff
     sleep 2 if rand(100000) <= 434 # 0.43%
