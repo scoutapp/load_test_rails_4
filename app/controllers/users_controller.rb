@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     render text: local_ip
   end
 
+  def urls
+    @ip = local_ip
+    render 'urls.plain.erb', layout: false, content_type: 'text/plain'
+  end
+
   def hey
     render json: {a: 1, b: 2}
   end
