@@ -10,7 +10,7 @@ gem 'unicorn'
 
 gem 'stackprof' # when profiling
 gem 'scout_statsd_rack'
-
+gem 'newrelic_rpm', '~> 3.14', '>= 3.14.1.311' # latest as of 1/24/2015
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
