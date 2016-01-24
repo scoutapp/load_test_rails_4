@@ -3,6 +3,10 @@ class UsersController < ApplicationController
     do_stuff
   end
 
+  def ip
+    render text: request.remote_ip
+  end
+
   def hey
     render json: {a: 1, b: 2}
   end
