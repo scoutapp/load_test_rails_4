@@ -15,9 +15,11 @@ module Rails4
 
     config.middleware.use 'Sample::Middleware'
     # Rack::Sendfile is the first middleware in the production env
-    config.middleware.insert_before Rack::Sendfile, StackProf::Middleware, enabled: false,
-                       mode: :cpu,
+    config.middleware.insert_before Rack::Sendfile, StackProf::Middleware, enabled: true,
+                       mode: :wall,
                        interval: 1000,
-                       save_every: 100
+                       save_every: 1000,
+                       save_at_exit: true,
+                       path: "tmp/stackprof_#{`git rev-parse --abbrev-ref HEAD`.strip}"
   end
 end
