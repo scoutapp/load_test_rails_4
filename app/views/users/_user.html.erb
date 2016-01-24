@@ -1,0 +1,5 @@
+<tr>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.city.name %></td> <%# deliberate n+1 query %>
+</tr>
