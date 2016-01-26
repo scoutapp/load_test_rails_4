@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/scoutapp/scout_apm_ruby.git
-  revision: 4ab41520433b6bf944d0f79ee6e790797efe9af5
-  branch: summary_metrics_for_middleware
+  revision: dc030e2bff24879ecdf2d7d7ae9d28c2964d1077
+  branch: sql_to_s
   specs:
     scout_apm (1.2.11)
 

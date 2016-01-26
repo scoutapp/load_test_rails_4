@@ -32,4 +32,5 @@ group :development do
   gem 'pry'
 end
 
-gem 'scout_apm', git: 'https://github.com/scoutapp/scout_apm_ruby.git', branch: 'summary_metrics_for_middleware'
+gem 'scout_apm', git: 'https://github.com/scoutapp/scout_apm_ruby.git', branch: 'sql_to_s'
+# gem 'scout_apm', :path => '/Users/dlite/projects/scout_apm_ruby'
