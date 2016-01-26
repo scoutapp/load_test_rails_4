@@ -21,5 +21,11 @@ module Rails4
                        save_every: 1000,
                        save_at_exit: true,
                        path: "tmp/stackprof_#{`git rev-parse --abbrev-ref HEAD`.strip}"
+
+    config.lograge.enabled = true
+    # add time to lograge
+    config.lograge.custom_options = lambda do |event|
+        {:time => event.time}
+    end
   end
 end
