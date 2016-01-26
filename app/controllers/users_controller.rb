@@ -39,6 +39,7 @@ class UsersController < ApplicationController
 
   def do_stuff
     sleep 2 if rand(100000) <= 434 # 0.43%
+    City::connection.execute "select pg_sleep(0.3)" # generate some i/o wait
     @users = User.limit(20).all
     render action: 'index'
   end
