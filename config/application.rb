@@ -18,7 +18,7 @@ module Rails4
     config.middleware.insert_before Rack::Sendfile, StackProf::Middleware, enabled: true,
                        mode: :wall,
                        interval: 1000,
-                       save_every: 1000,
+                       save_every: 100,
                        save_at_exit: true,
                        path: "tmp/stackprof_#{`git rev-parse --abbrev-ref HEAD`.strip}"
 
