@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/scoutapp/scout_apm_ruby.git
-  revision: cd3b84f703c279471f91e21340e112316ef9d287
-  branch: sql_to_s
+  revision: 5766ac702d3e4d1b61361c76e6995ea790896e6c
+  branch: layer_name_perf
   specs:
     scout_apm (1.2.11)
 
