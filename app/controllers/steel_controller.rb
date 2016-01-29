@@ -1,4 +1,5 @@
 class SteelController < ActionController::Metal
+  include ScoutApm::Instruments::ActionControllerRails3Rails4Instruments
   # Generate a bunch of fake endpoints. These can reached like: http://127.0.0.1:8080/steel/index1/id.
   # Used to add more metric diversity to reporting periods.
   (1..100).to_a.each do |i|
