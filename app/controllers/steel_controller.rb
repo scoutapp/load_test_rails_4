@@ -17,4 +17,6 @@ class SteelController < ActionController::Metal
     user = User.order("RANDOM()").first
     self.response_body = "Hello #{user.name}!"
   end
+
+  include ActionController::Instrumentation
 end
