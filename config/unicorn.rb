@@ -1,4 +1,4 @@
-worker_processes 30
+worker_processes 90
 timeout 15
 preload_app true
 listen 8080
