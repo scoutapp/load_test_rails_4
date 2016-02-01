@@ -14,7 +14,8 @@ module Rails4
   class Application < Rails::Application
 
     config.middleware.use 'Sample::Middleware'
-    # Rack::Sendfile is the first middleware in the production env
+    # Rack::Sendfile is the first middleware in the production env. Stack profiles are written to the tmp/folder w/the 
+    # associated Git branch name.
     config.middleware.insert_before Rack::Sendfile, StackProf::Middleware, enabled: true,
                        mode: :wall,
                        interval: 1000,
