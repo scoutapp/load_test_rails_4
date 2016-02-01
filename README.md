@@ -22,4 +22,12 @@ Different benchmarks and their associated agents are configured via Git branches
 
 ## Monitoring and Profiling
 
-The Scout Statsd Rack gem and Stackprofiler are included for monitoring and profiling.
+The Scout StatsD Rack gem and Stackprofiler are included for monitoring and profiling. StatsD metrics are reported to localhost.
+
+## APM Agent Configuration
+
+All authentication is configured via environment variables:
+
+* Scout - SCOUT_KEY
+* New Relic - NEW_RELIC_LICENSE_KEY 
+* Skylight - SKYLIGHT_AUTHENTICATION
