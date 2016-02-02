@@ -1,5 +1,4 @@
-class SteelController < ActionController::Metal
-  include ScoutApm::Instruments::ActionControllerRails3Rails4Instruments
+class FastController < ApplicationController
   # Generate a bunch of fake endpoints. These can reached like: http://127.0.0.1:8080/steel/index1/id.
   # Used to add more metric diversity to reporting periods.
   (1..100).to_a.each do |i|
@@ -16,6 +15,6 @@ class SteelController < ActionController::Metal
 
   def do_stuff
     user = User.order("RANDOM()").first
-    self.response_body = "Hello #{user.name}!"
+    render text: "Hello #{user.name}!"
   end
 end
