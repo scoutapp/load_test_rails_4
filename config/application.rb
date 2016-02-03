@@ -28,5 +28,6 @@ module Rails4
     config.lograge.custom_options = lambda do |event|
         {:time => event.time}
     end
+    config.lograge.logger = ActiveSupport::Logger.new "#{Rails.root}/log/#{Rails.env}.#{`git rev-parse --abbrev-ref HEAD`.strip}.log"
   end
 end
