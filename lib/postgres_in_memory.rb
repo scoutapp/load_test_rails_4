@@ -31,7 +31,7 @@ module ActiveRecord
 
         # Fake I/O Wait
         def io_sleep
-          sleep 1/1000.0
+          sleep 10/1000.0
         end
 
         # Returns results from our in-memory store if:
@@ -41,12 +41,14 @@ module ActiveRecord
           ret = nil
           if sql.include? "SELECT  \"users\".* FROM \"users\"" and sql.include? 'LIMIT'
             logger.debug "Returning in-memory users"
-            io_sleep
+            # instrumentation is inserted at #log, so we fake the call here
+            log(sql, name, binds) { io_sleep }
             count = sql.scan(/LIMIT\s(\d+)/).last.last.to_i
             ret = ActiveRecord::Result.new(users[:cols],users[:rows][0..(count-1)])
           elsif sql.include? "SELECT  \"cities\".* FROM \"cities\"" and sql.include? 'LIMIT'
             logger.debug "Returning in-memory cities"
-            io_sleep
+            # instrumentation is inserted at #log, so we fake the call here
+            log(sql, name, binds) { io_sleep }            
             count = sql.scan(/LIMIT\s(\d+)/).last.last.to_i
             ret = ActiveRecord::Result.new(cities[:cols],cities[:rows][0..(count-1)])
           else
