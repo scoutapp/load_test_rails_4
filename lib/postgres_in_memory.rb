@@ -31,7 +31,7 @@ module ActiveRecord
 
         # Fake I/O Wait
         def io_sleep
-          sleep 10/1000.0
+          sleep 5/1000.0
         end
 
         # Returns results from our in-memory store if:
