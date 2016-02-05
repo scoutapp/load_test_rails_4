@@ -2,6 +2,7 @@ worker_processes 30
 timeout 15
 preload_app true
 listen 8080
+pid 'tmp/unicorn.pid'
 
 before_fork do |server, worker|
   Signal.trap 'TERM' do
