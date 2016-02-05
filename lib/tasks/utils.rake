@@ -15,11 +15,7 @@ end
 
 namespace :bench do
   task :prep do
-    if ENV['b'].nil?
-      puts "Please provide a branch."
-      exit
-    end
-    `git checkout #{ENV['b']}`
+    `git checkout #{ENV['b']}` if ENV['b']
     `git pull`
     Rake::Task["data:clear"].invoke
     Rake::Task["unicorn:start"].invoke
