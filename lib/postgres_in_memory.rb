@@ -29,7 +29,7 @@ module ActiveRecord
           @cities
         end
 
-        # Fake I/O Wait
+        # Fake I/O Wait. Note that the actual sleep amount will NOT always be 2.5 ms - it's common to see these > 10 ms under heavy load.
         def io_sleep
           sleep 2.5/1000.0
         end

@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'lograge'
 
+gem 'descriptive_statistics'
+gem 'table_print'
+
 group :development do
   gem 'spring'
   gem 'pry'
