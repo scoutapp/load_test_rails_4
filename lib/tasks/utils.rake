@@ -8,7 +8,7 @@ end
 
 namespace :data do
   task clear: :environment do
-    `rm #{Rails.root}/log/#{Rails.env}.#{git_branch}.log`
+    `> #{Rails.root}/log/#{Rails.env}.#{git_branch}.log`
     `rm -Rf #{Rails.root}/tmp/stackprof_#{git_branch}`
   end
   task clear_all: :environment do
