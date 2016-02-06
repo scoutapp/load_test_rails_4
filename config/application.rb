@@ -16,13 +16,17 @@ module Rails4
     config.middleware.use 'Sample::Middleware'
     # Rack::Sendfile is the first middleware in the production env. Stack profiles are written to the tmp/folder w/the 
     # associated Git branch name.
-    config.middleware.insert_before Rack::Sendfile, StackProf::Middleware, enabled: true,
-                       mode: :wall,
-                       interval: 1000,
-                       save_every: 100,
-                       save_at_exit: true,
-                       path: "tmp/stackprof_#{`git rev-parse --abbrev-ref HEAD`.strip}"
 
+    if ENV['prof']
+      puts "Stackprof enabled."
+      config.middleware.insert_before Rack::Sendfile, StackProf::Middleware, enabled: true,
+                         mode: :wall,
+                         interval: 1000,
+                         save_every: 100,
+                         save_at_exit: true,
+                         path: "tmp/stackprof_#{`git rev-parse --abbrev-ref HEAD`.strip}"
+    end
+    
     config.lograge.enabled = true
     # add time to lograge
     config.lograge.custom_options = lambda do |event|
