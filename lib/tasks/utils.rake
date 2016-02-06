@@ -8,7 +8,7 @@ end
 
 namespace :data do
   task clear: :environment do
-    `rm #{Rails.root}/log/#{Rails.env}.#{git_branch}.log`
+    `> #{Rails.root}/log/#{Rails.env}.#{git_branch}.log`
     `rm -Rf #{Rails.root}/tmp/stackprof_#{git_branch}`
   end
   task clear_all: :environment do
@@ -18,18 +18,24 @@ namespace :data do
   task log: :environment do
     duration_regex = /duration=(\d+\.*\d*)/
     db_regex = /db=(\d+\.*\d*)/
-    rows = []
     requests = []
     db = []
+    ruby = []
+    rows = []
     f = "log/#{Rails.env}.#{git_branch}.log"
     File.open(f, "r") do |file_handle|
       puts "[#{f}] Parsing..."
       file_handle.each_line do |l|
+        d = 0
+        total = nil
         if match = l.scan(duration_regex).last
-          requests << match.last.to_f
+          requests << (total=match.last.to_f)
         end
         if match = l.scan(db_regex).last
-          db << match.last.to_f
+          db << (d=match.last.to_f)
+        end
+        if total
+          ruby << (total-d)
         end
       end
     end
@@ -37,10 +43,11 @@ namespace :data do
     data.merge!({db_mean: db.mean})
     name = git_branch
     data.merge!({name: name})
+    data.merge!({ruby_mean: ruby.mean})
     rows << data
     puts "[#{f}] ...Done."
 
-    tp rows, :name, :number, :mean, :db_mean, :percentile_90th, :percentile_95th, :percentile_99th, :max
+    tp rows, :name, :number, :mean, :ruby_mean, :db_mean, :percentile_90th, :percentile_95th, :percentile_99th, :max
   end
 
   task :stackprof do
