@@ -26,7 +26,6 @@ namespace :data do
     File.open(f, "r") do |file_handle|
       puts "[#{f}] Parsing..."
       file_handle.each_line do |l|
-        puts l
         d = 0
         total = nil
         if match = l.scan(duration_regex).last
