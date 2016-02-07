@@ -7,14 +7,19 @@ def git_branch
 end
 
 namespace :data do
+  desc "Truncate the #{git_branch} log file and remove stackprof results."
   task clear: :environment do
     `> #{Rails.root}/log/#{Rails.env}.#{git_branch}.log`
     `rm -Rf #{Rails.root}/tmp/stackprof_#{git_branch}`
   end
+
+  desc "Delete all log files and stacprof results."
   task clear_all: :environment do
     `rm #{Rails.root}/log/*.log`
     `rm -Rf #{Rails.root}/tmp/stackprof_*`
   end
+  
+  desc "Analyze the #{git_branch} log file and output results."
   task log: :environment do
     duration_regex = /duration=(\d+\.*\d*)/
     db_regex = /db=(\d+\.*\d*)/
@@ -50,6 +55,7 @@ namespace :data do
     tp rows, :name, :number, :mean, :ruby_mean, :db_mean, :percentile_90th, :percentile_95th, :percentile_99th, :max
   end
 
+  desc "Generate stackprof results for the #{git_branch} branch."
   task :stackprof do
     dir = "tmp/stackprof_#{git_branch}"
     name = if dir.include?('newrelic')
@@ -62,6 +68,7 @@ namespace :data do
 end # data
 
 namespace :bench do
+  desc "Switch to the provided branch ('b' env var if provided), grab the latest, clear data, and start unicorn."
   task :prep do
     `git checkout #{ENV['b']}` if ENV['b']
     `git pull`
