@@ -50,6 +50,23 @@ namespace :data do
     tp rows, :name, :number, :mean, :ruby_mean, :db_mean, :percentile_90th, :percentile_95th, :percentile_99th, :max
   end
 
+  task :log_csv do
+    duration_regex = /duration=(\d+\.*\d*)/
+    requests = []
+    f = "log/#{Rails.env}.#{git_branch}.log"
+    File.open(f, "r") do |file_handle|
+      puts "[#{f}] Parsing..."
+      file_handle.each_line do |l|
+        d = 0
+        if match = l.scan(duration_regex).last
+          requests << (total=match.last.to_f)
+        end
+      end
+    end
+    puts "[#{f}] ...Done."
+    puts requests.join("\n")
+  end
+
   task :stackprof do
     dir = "tmp/stackprof_#{git_branch}"
     name = if dir.include?('newrelic')
