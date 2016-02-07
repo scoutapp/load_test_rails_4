@@ -24,6 +24,16 @@ Different benchmarks and their associated agents are configured via Git branches
 5. App (window 2): When siege completes, gracefully shutdown the unicorn workers: `rake unicorn:stop`
 6. App: (window 2): Inspect the log results: `rake data:log`
 
+## Running tests against the `fast_endpoint` branch
+
+A different set of URLs needs to be used to for this test:
+
+Util: `wget http://[IP]/fast/urls -O fast.txt`
+
+Use the `fast.txt` file vs. `urls.txt` with siege:
+
+`siege -v -f fast.txt -c 30 -b -t 10M`
+
 ## Monitoring and Profiling
 
 StatsD metrics are reported to localhost so results can be previewed during a test run.
@@ -38,7 +48,7 @@ You should see the following via `STDOUT`: `Stackprof enabled.`
 
 To view results from the test run:
 
-`rake data:stackprof`.
+`rake data:stackprof`
 
 ## APM Agent Configuration
 
