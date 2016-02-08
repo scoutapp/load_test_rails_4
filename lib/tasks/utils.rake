@@ -31,7 +31,7 @@ def analyze_file(file_path)
   end
   data = requests.descriptive_statistics.merge(percentile_90th: requests.percentile(90), percentile_95th: requests.percentile(95), percentile_99th: requests.percentile(99))
   data.merge!({db_mean: db.mean})
-  name = git_branch
+  name = f.scan(/log\/#{Rails.env}\.(\w+)/).last.last
   data.merge!({name: name})
   data.merge!({ruby_mean: ruby.mean})
   puts "[#{file_path}] ...Done."
