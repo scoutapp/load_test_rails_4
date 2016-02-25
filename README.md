@@ -16,13 +16,14 @@ Different benchmarks and their associated agents are configured via Git branches
   * app server w/rails
   * app server w/rails app
   * util server where siege will be ran
-2. App (window 1): Clear out past results and start the app: `rake bench:prep`.
-3. Util: Fetch a list of endpoints to benchmark: `wget http://[IP]/users/urls -O urls.txt`
-4. Util: Warmup the app cache: `siege -v -f urls.txt -c 30 -b -t 1M`
-5. App (window 2): Clear out the log file during the warmup: `rake data:clear`
-6. Util: Seige: `siege -v -f urls.txt -c 30 -b -t 10M`
-5. App (window 2): When siege completes, gracefully shutdown the unicorn workers: `rake unicorn:stop`
-6. App: (window 2): Inspect the log results: `rake data:log`
+2. App (window 1): `cd /vagrant/rails_4/`
+3. App (window 1): Clear out past results and start the app: `rake bench:prep`.
+4. Util: Fetch a list of endpoints to benchmark: `wget http://[IP]:8080/users/urls -O urls.txt`
+5. Util: Warmup the app cache: `siege -v -f urls.txt -c 30 -b -t 1M`
+6. App (window 2): Clear out the log file during the warmup: `rake data:clear`
+7. Util: Seige: `siege -v -f urls.txt -c 30 -b -t 10M`
+8. App (window 2): When siege completes, gracefully shutdown the unicorn workers: `rake unicorn:stop`
+9. App: (window 2): Inspect the log results: `rake data:log`
 
 ## Running tests against the `fast_endpoint` branch
 
