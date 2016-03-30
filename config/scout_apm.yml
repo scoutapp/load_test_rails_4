@@ -5,6 +5,7 @@ common: &defaults
   # key: Your Organization key for Scout APM. Found on the settings screen.
   # - Default: none
   key: <%= ENV['SCOUT_KEY'] %>
+  host: http://scoutapp.ngrok.io
 
   # log_level: Verboseness of logs.
   # - Default: 'info'
