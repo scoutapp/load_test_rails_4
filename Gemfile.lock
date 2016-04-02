@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/scoutapp/scout_apm_ruby.git
-  revision: 2cd482aa62c80ef4e82530d8546e5acad3cc73d0
+  revision: 1f1f53f42a45fb49e638b1a9cd1cb244345b6795
   branch: background_jobs_memory
   specs:
     scout_apm (1.5.0.pre3)
