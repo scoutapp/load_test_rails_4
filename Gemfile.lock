@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/scoutapp/scout_apm_ruby.git
+  revision: f616fe77c43a6e0e2e2aec29e0bebe7ca0255f1f
+  branch: background_jobs_memory_no_objects
+  specs:
+    scout_apm (1.5.0.pre3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -118,7 +125,6 @@ GEM
       sass (~> 3.2.2)
       sprockets (~> 2.8, < 3.0)
       sprockets-rails (~> 2.0)
-    scout_apm (1.3.1)
     scout_statsd_rack (0.1.6)
       statsd-ruby (~> 1.2)
     slop (3.6.0)
@@ -164,7 +170,7 @@ DEPENDENCIES
   puma
   rails (~> 4.2, >= 4.2.5)
   sass-rails (~> 4.0.3)
-  scout_apm
+  scout_apm!
   scout_statsd_rack
   spring
   stackprof
