@@ -86,6 +86,7 @@ namespace :bench do
   task :prep do
     `git checkout #{ENV['b']}` if ENV['b']
     `git pull`
+    `rm #{Rails.root}/log/scout_apm.db`
     Rake::Task["data:clear"].invoke
     Rake::Task["unicorn:start"].invoke
   end
