@@ -38,5 +38,5 @@ group :development do
 end
 
 # gem 'scout_apm', '1.5.2.pre'
-gem 'scout_apm', git: 'https://github.com/scoutapp/scout_apm_ruby.git', branch: 'n+1_demo'
+gem 'scout_apm', git: 'https://github.com/scoutapp/scout_apm_ruby.git', branch: 'n+1_demo_slow'
 # gem 'scout_apm', :path => '/Users/dlite/projects/scout_apm_ruby'
