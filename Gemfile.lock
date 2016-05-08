@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/scoutapp/scout_apm_ruby.git
-  revision: 71fa88c7a55099e0bba099534654d889f77d8e57
-  branch: background_jobs_mem_ar_refactor_perf
+  revision: 9085f225f862ae34d86af3a9a7ea494fa9e7527a
+  branch: background_jobs_mem_ar_refactor
   specs:
     scout_apm (1.5.2.pre)
       rusage (~> 0.2.0)
