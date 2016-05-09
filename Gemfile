@@ -37,5 +37,5 @@ group :development do
   gem 'pry'
 end
 
-gem 'scout_apm', git: 'https://github.com/scoutapp/scout_apm_ruby.git', branch: 'n+1_demo'
+gem 'scout_apm', git: 'https://github.com/scoutapp/scout_apm_ruby.git', branch: 'background_jobs_mem_ar_refactor'
 # gem 'scout_apm', :path => '/Users/dlite/projects/scout_apm_ruby'
