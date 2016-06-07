@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/scoutapp/scout_apm_ruby.git
-  revision: 341723eea4f13a64f779edd125a862f7ea1a2786
+  revision: 97d4ac161f2fd1f21ae393975ac61599f9de13b2
   branch: policy_points_mem
   specs:
     scout_apm (2.0.0.pre)
