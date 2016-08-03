@@ -37,5 +37,5 @@ group :development do
   gem 'pry'
 end
 
-gem 'scout_apm', :git => 'https://github.com/scoutapp/scout_apm_ruby.git', :branch => 'stackprof_v2'
+gem 'scout_apm', :git => 'https://github.com/scoutapp/scout_apm_ruby.git', :branch => 'stackprof_v2_derek'
 # gem 'scout_apm', :path => '/Users/dlite/projects/scout_apm_ruby'
