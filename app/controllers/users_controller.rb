@@ -38,7 +38,8 @@ class UsersController < ApplicationController
 
   def do_stuff
     # used to add slow requests to an app and force a higher level of data collection in APM agent.
-    sleep 2 if rand(100000) <= 434 # 0.43%
+    # sleep 2 if rand(100000) <= 434 # 0.43%
+    ARRAY = [*1..30_000_000] ; nil # this is slow
     @users = User.limit(20).all
     render action: 'index'
   end
