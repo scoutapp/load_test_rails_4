@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/scoutapp/scout_apm_ruby.git
-  revision: 17e045d7bf8a28d93feffc7db737b5778628660a
-  branch: stackprof_v2_derek
+  revision: 9dfdebaf015cf8b857f238e82ca524bb443c2914
+  branch: memory_tracking
   specs:
     scout_apm (2.0.0.pre8)
       rusage (~> 0.2.0)
