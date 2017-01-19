@@ -1,6 +1,6 @@
 # Rails 4 Load Testing App
 
-This is an application used by the [Scout](https://scoutapp.com) enginneering team to benchmark the performance of our application monitoring agent. 
+This is an application used by the [Scout](https://scoutapp.com) team to benchmark the performance of our application monitoring agent. 
 
 ## Branch structure
 
